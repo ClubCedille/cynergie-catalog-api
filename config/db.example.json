@@ -1,0 +1,11 @@
+{
+    "username": "username",
+    "password" : "secret",
+    "dbName": "catalog",
+    "hosts": [
+        "localhost:27017"
+    ],
+    "options": {
+        "ssl": true
+    }
+}
