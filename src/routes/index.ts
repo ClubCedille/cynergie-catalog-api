@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { BaseRoute } from "./route";
 
-
 /**
  * / route
  *
@@ -23,6 +22,11 @@ export class IndexRoute extends BaseRoute {
     //add home page route
     router.get("/", (req: Request, res: Response, next: NextFunction) => {
       new IndexRoute().index(req, res, next);
+    });
+
+    router.post("/api/v1/metric/", (req: Request, res: Response, next: NextFunction) => {
+      const data = req.body;
+      new IndexRoute().addMetric(req, res, next);
     });
   }
 
@@ -46,6 +50,19 @@ export class IndexRoute extends BaseRoute {
    * @next {NextFunction} Execute the next method.
    */
   public index(req: Request, res: Response, next: NextFunction) {
+    //set custom title
+    this.title = "Home | Tour of Heros";
+
+    //set message
+    let options: Object = {
+      "message": "Welcome to the Tour of Heros"
+    };
+
+    //render template
+    this.render(req, res, "index", options);
+  }
+
+  public addMetric(req: Request, res: Response, next: NextFunction) {
     //set custom title
     this.title = "Home | Tour of Heros";
 
