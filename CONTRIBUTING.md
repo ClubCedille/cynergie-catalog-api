@@ -12,3 +12,8 @@
 * Create the merge request on GitHub
 
 Don't forget to start every branch from `master` and to keep your master up to date: `git pull upstream master`.
+
+## Team software
+
+* vscode (with tslint)
+* GitKraken
