@@ -9,7 +9,7 @@ export const metricSchema: Schema = new Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-metricSchema.pre("save", (next) => {
+metricSchema.pre("save", next => {
     if (!this.createdAt) {
         this.createdAt = new Date();
     }

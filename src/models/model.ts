@@ -3,6 +3,6 @@ import { IAdapterModel } from "./adapter";
 import { IMetricModel } from "./metric";
 
 export interface IModel {
-  adpater: Model<IAdapterModel>;
-  metric: Model<IMetricModel>;
+    adpater: Model<IAdapterModel>;
+    metric: Model<IMetricModel>;
 }

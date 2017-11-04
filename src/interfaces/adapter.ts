@@ -1,5 +1,5 @@
 export interface IAdapter {
-  email?: string;
-  firstName?: string;
-  lastName?: string;
+    email?: string;
+    firstName?: string;
+    lastName?: string;
 }
