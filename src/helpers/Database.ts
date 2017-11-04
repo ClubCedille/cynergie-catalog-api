@@ -24,14 +24,13 @@ export class Database {
         return new Promise((resolve, reject) => {
             mongoose.connect(uri, {
                 useMongoClient: true
-            }, (err: any) => reject(err));
+            }, (err: any) => err && reject(err));
             const db = mongoose.connection;
             db.on("error", (err: any) => console.error("MongoDB connection error:", err));
             db.once("open", () => {
                 console.log(`Connected to the ${cncInfo.dbName} database`);
-                resolve();
+                resolve(db);
             });
-            return db;
         });
     }
 
@@ -50,6 +49,10 @@ export class Database {
             .map((n: string) => `${n}=${cncInfo.options[n]}`)
             .join("&");
 
-        return `mongodb://${cncInfo.username}:${cncInfo.password}@${cluster}/${cncInfo.dbName}?${serializedOptions}`;
+        const baseString = `mongodb://${cncInfo.username}:${cncInfo.password}@${cluster}/${cncInfo.dbName}`;
+        if (serializedOptions) {
+            return `${baseString}?${serializedOptions}`;
+        }
+        return baseString;
     }
 }
