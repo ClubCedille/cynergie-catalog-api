@@ -8,7 +8,7 @@ And : http://brianflove.com/2016/11/11/typescript-2-express-mongoose-mocha-chai/
 
 Have an instance of MongoDB.
 
-Duplicate `config/db.example.json` as `config/db.example.json` and set your credentials.
+Duplicate `config/db.example.json` as `config/db.json` and set your credentials.
 
 Then, install and start the application:
 - `npm install`
